@@ -1,0 +1,32 @@
+image: node:20
+
+definitions:
+  caches:
+    npm: ~/.npm
+
+pipelines:
+  pull-requests:
+    staging:
+      - step:
+          name: ESLint and Build for Staging
+          caches:
+            - node
+            - npm
+          script:
+            - npm ci
+            - npm run lint
+            - npm run build
+          artifacts:
+            - .next/**
+    production:
+      - step:
+          name: ESLint and Build for Production
+          caches:
+            - node
+            - npm
+          script:
+            - npm ci
+            - npm run lint
+            - NODE_ENV=production npm run build
+          artifacts:
+            - .next/**
