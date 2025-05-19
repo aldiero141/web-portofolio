@@ -41,6 +41,29 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --animate-aurora: aurora 8s ease-in-out infinite alternate;
+  @keyframes aurora {
+    0% {
+      background-position: 0% 50%;
+      transform: rotate(-5deg) scale(0.9);
+    }
+    25% {
+      background-position: 50% 100%;
+      transform: rotate(5deg) scale(1.1);
+    }
+    50% {
+      background-position: 100% 50%;
+      transform: rotate(-3deg) scale(0.95);
+    }
+    75% {
+      background-position: 50% 0%;
+      transform: rotate(3deg) scale(1.05);
+    }
+    100% {
+      background-position: 0% 50%;
+      transform: rotate(-5deg) scale(0.9);
+    }
+  }
 }
 
 :root {
@@ -139,6 +162,36 @@
   --sidebar-ring: oklch(0.51 0.2 27.81);
 
   --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply overflow-hidden h-full;
+  }
+  body {
+    @apply overflow-auto h-full bg-background text-foreground;
+  }
+  h1 {
+    @apply text-7xl font-bold;
+  }
+  h2 {
+    @apply text-6xl font-bold;
+  }
+  h3 {
+    @apply text-5xl font-bold;
+  }
+  h4 {
+    @apply text-3xl font-semibold;
+  }
+  h5 {
+    @apply text-2xl font-semibold;
+  }
+  h6 {
+    @apply text-xl font-semibold;
+  }
 }
 
 @layer base {
