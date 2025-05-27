@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function HeroSection() {
   return (
-    <section className="w-full h-full min-h-[40svh] ">
+    <section className="w-full h-full min-h-[80svh] flex flex-col items-center justify-center container mx-auto">
       <div className="w-full h-full flex items-center justify-center">
         <div className="flex flex-col justify-center gap-4">
           <TextAnimate animation="slideUp" as="h1">
@@ -16,13 +16,13 @@ export default function HeroSection() {
             </TextAnimate>
             <h4 className="animate-fade-in">
               <AuroraText>
-                Frontend Developer
+                Web Developer
               </AuroraText>
             </h4>
           </div>
         </div>
         <div className="flex justify-center items-center">
-          <Image src="/assets/cat-image.png" alt="hero-image" width={500} height={500} />
+          <Image src="/assets/cat-image.png" alt="hero-image" width={800} height={800} className="-ml-32" />
         </div>
       </div>
     </section>
